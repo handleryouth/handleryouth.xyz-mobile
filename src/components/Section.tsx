@@ -1,24 +1,31 @@
 import React, { ReactNode } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, ViewStyle } from "react-native";
+import { Headline } from "react-native-paper";
 
 export interface HomeSectionProps {
   title?: string;
   body: ReactNode;
-  customTitleClass?: string;
+  style?: ViewStyle;
 }
 
-const Section = ({ title, body }: HomeSectionProps) => {
+const Section = ({ title, body, style }: HomeSectionProps) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.containerText}>{title}</Text>
+    <View style={{ ...styles.container, ...style }}>
+      <Headline style={styles.containerText}>{title}</Headline>
       {body}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
-  containerText: {},
+  container: {
+    paddingVertical: 10,
+  },
+  containerText: {
+    fontFamily: "Inter-Bold",
+    textAlign: "center",
+    marginBottom: 20,
+  },
 });
 
 export default Section;

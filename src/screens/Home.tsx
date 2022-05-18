@@ -6,50 +6,78 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   Image,
   ScrollView,
   Linking,
   Dimensions,
+  FlatList,
 } from "react-native";
-import { ActivityDescription, Section } from "../components";
-import { RootStackParamList } from "../types";
+import {
+  ActivityDescription,
+  CardThumbnail,
+  LoadingIndicator,
+  Section,
+  Paragraph,
+} from "../components";
+import { ProjectData, RootStackParamList } from "../types";
 import { gql, useQuery } from "@apollo/client";
+import { Button } from "react-native-paper";
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
-
-export const QUERY_GET_ALL_PROJECTS = gql`
-  query getData {
+export const QUERY_GET_PROJECTS = gql`
+  query getAllProjects {
     getAllProject {
-      _id
+      id
       description
-      image
-      linkDemo
-      linkRepo
       title
+      image
+      linkRepo
+      linkDemo
     }
   }
 `;
 
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
+
 function HomeScreen({ navigation }: HomeScreenProps) {
   const width = Dimensions.get("window").width;
-  const { data, loading } = useQuery(QUERY_GET_ALL_PROJECTS);
-
-  console.log(data);
+  const { loading, data } = useQuery(QUERY_GET_PROJECTS, {
+    fetchPolicy: "no-cache",
+    notifyOnNetworkStatusChange: true,
+  });
 
   return (
-    <ScrollView>
+    <ScrollView
+      style={{
+        paddingHorizontal: 10,
+      }}
+    >
       <Section
         body={
           <View>
-            <View>
-              <Text>Image in here</Text>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={require("../../assets/236782.webp")}
+                style={{
+                  width: 200,
+                  height: 300,
+                }}
+              />
             </View>
 
-            <View>
-              <Text>Frontend Engineer</Text>
-              <Text>Tony David</Text>
-              <Text>
+            <View
+              style={{
+                marginVertical: 10,
+              }}
+            >
+              <Paragraph>Frontend Engineer</Paragraph>
+              <Paragraph>Tony David</Paragraph>
+              <Paragraph>
                 Tony is an Electrical Engineering student who still studying at
                 the Sepuluh Nopember Institute of Technology. He is interested
                 in studying in the computer field, especially hardware. Being
@@ -57,10 +85,14 @@ function HomeScreen({ navigation }: HomeScreenProps) {
                 he loves learning programming languages (Python, Javascript,
                 etc). Right now, he is pursuing his career as a FrontEnd
                 Engineer
-              </Text>
-
-              <Button title="Know me more!" onPress={() => null} />
+              </Paragraph>
             </View>
+            <Button
+              onPress={() => navigation.navigate("Details")}
+              mode="contained"
+            >
+              Know me more!
+            </Button>
           </View>
         }
       />
@@ -73,6 +105,9 @@ function HomeScreen({ navigation }: HomeScreenProps) {
               title="Frontend Engineer"
               description="I am a Frontend Engineer, I have experience in building web applications using React, Redux, NextJS, TailwindCSS, TypeScript, NodeJS, ExpressJS, MongoDB, GraphQL, Apollo, and more."
               icon={<AntDesignIcon name="codesquareo" size={25} />}
+              style={{
+                marginBottom: 30,
+              }}
             />
 
             <ActivityDescription
@@ -85,16 +120,43 @@ function HomeScreen({ navigation }: HomeScreenProps) {
       />
 
       <Section
+        title="Web Projects"
+        body={
+          <View>
+            {loading ? (
+              <LoadingIndicator />
+            ) : (
+              <FlatList
+                data={data.getAllProject.slice(0, 3)}
+                renderItem={({ item, index }) => (
+                  <CardThumbnail
+                    key={index}
+                    image={item.image}
+                    linkDemo={item.linkDemo}
+                    linkRepo={item.linkRepo}
+                    title={item.title}
+                  />
+                )}
+              />
+            )}
+          </View>
+        }
+      />
+
+      <Section
         title="You might be interested"
         body={
           <View>
-            <Text
+            <Paragraph
+              style={{
+                textAlign: "center",
+              }}
               onPress={() =>
                 Linking.openURL("https://starting-page.vercel.app/")
               }
             >
               Starting Page for Browser
-            </Text>
+            </Paragraph>
 
             <Image
               source={require("../../assets/startingpage.webp")}
@@ -112,5 +174,3 @@ function HomeScreen({ navigation }: HomeScreenProps) {
 }
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});

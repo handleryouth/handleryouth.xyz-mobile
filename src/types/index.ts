@@ -1,12 +1,10 @@
-import { ObjectId } from "mongodb";
-
 export type RootStackParamList = {
   Home: undefined;
-  Details: undefined;
+  About: undefined;
 };
 
 export interface ProjectData {
-  _id: ObjectId;
+  id: string;
   image: string;
   title: string;
   description: string;

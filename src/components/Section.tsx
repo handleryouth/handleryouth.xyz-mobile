@@ -1,17 +1,20 @@
 import React, { ReactNode } from "react";
-import { View, StyleSheet, ViewStyle } from "react-native";
-import { Headline } from "react-native-paper";
+import { View, StyleSheet, ViewStyle, TextStyle } from "react-native";
+import CustomHeadline from "./CustomHeadline";
 
 export interface HomeSectionProps {
   title?: string;
   body: ReactNode;
   style?: ViewStyle;
+  headerStyle?: TextStyle;
 }
 
-const Section = ({ title, body, style }: HomeSectionProps) => {
+const Section = ({ title, body, style, headerStyle }: HomeSectionProps) => {
   return (
     <View style={{ ...styles.container, ...style }}>
-      <Headline style={styles.containerText}>{title}</Headline>
+      <CustomHeadline style={{ ...styles.containerText, ...headerStyle }}>
+        {title}
+      </CustomHeadline>
       {body}
     </View>
   );
@@ -22,9 +25,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   containerText: {
-    fontFamily: "Inter-Bold",
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 10,
   },
 });
 

@@ -8,7 +8,7 @@ const CardThumbnail = ({
   linkDemo,
   linkRepo,
   title,
-}: Omit<ProjectData, "_id" | "description">) => (
+}: Omit<ProjectData, "id" | "description">) => (
   <Card>
     <Card.Cover source={{ uri: image }} />
     <Card.Title title={title} />

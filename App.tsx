@@ -2,12 +2,16 @@
 
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { routesDirectory } from "./src";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { routesDirectory, theme } from "./src";
+import { Provider as PaperProvider } from "react-native-paper";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { useFonts } from "expo-font";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
-const { Navigator, Screen } = createBottomTabNavigator();
+<Ionicons name="home" size={24} color="black" />;
+const { Navigator, Screen } = createMaterialBottomTabNavigator();
 
 const client = new ApolloClient({
   uri: "https://csb-7qohjn.vercel.app/graphql",
@@ -33,13 +37,23 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <NavigationContainer>
-        <Navigator initialRouteName="Home">
-          {routesDirectory.map((route, index) => (
-            <Screen key={index} name={route.name} component={route.component} />
-          ))}
-        </Navigator>
-      </NavigationContainer>
+      <PaperProvider theme={theme}>
+        <StatusBar backgroundColor="white" />
+        <NavigationContainer>
+          <Navigator initialRouteName="Resume">
+            {routesDirectory.map((route) => (
+              <Screen
+                key={route.name}
+                name={route.name}
+                component={route.component}
+                options={{
+                  tabBarIcon: route.icon,
+                }}
+              />
+            ))}
+          </Navigator>
+        </NavigationContainer>
+      </PaperProvider>
     </ApolloProvider>
   );
 }

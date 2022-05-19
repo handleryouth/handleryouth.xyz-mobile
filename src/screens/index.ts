@@ -1,5 +1,9 @@
 export * from "./Home";
-export * from "./Details";
+export * from "./About";
+export * from "./Project";
+export * from "./Resume";
 
 export { default as Home } from "./Home";
-export { default as Details } from "./Details";
+export { default as About } from "./About";
+export { default as Project } from "./Project";
+export { default as Resume } from "./Resume";

@@ -1,6 +1,7 @@
 import React from "react";
 import { Linking } from "react-native";
-import { Button, Card, Paragraph, Title } from "react-native-paper";
+import { Button, Card, Title } from "react-native-paper";
+import CustomParagraph from "./CustomParagraph";
 import { ProjectData } from "../types";
 
 const CustomCard = ({
@@ -9,14 +10,14 @@ const CustomCard = ({
   linkDemo,
   linkRepo,
   title,
-}: Omit<ProjectData, "_id">) => {
+}: Omit<ProjectData, "id">) => {
   return (
     <Card>
       <Card.Cover source={{ uri: image }} />
       <Card.Title title={title} />
       <Card.Content>
         <Title>{title}</Title>
-        <Paragraph>{description}</Paragraph>
+        <CustomParagraph>{description}</CustomParagraph>
       </Card.Content>
       <Card.Actions>
         <Button onPress={() => Linking.openURL(linkRepo)}>Repo</Button>

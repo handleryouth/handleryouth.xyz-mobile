@@ -2,41 +2,44 @@ import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import {
-  View,
-  Image,
-  Linking,
-  Dimensions,
-  FlatList,
-  StatusBar,
-} from "react-native";
+import { View, Image, Linking, Dimensions, FlatList } from "react-native";
 import {
   ActivityDescription,
   CardThumbnail,
   LoadingIndicator,
   Section,
   Paragraph,
+  SafeAreaView,
 } from "../components";
 import { RootStackParamList } from "../types";
 import { useQuery } from "@apollo/client";
 import { Button } from "react-native-paper";
 import { QUERY_GET_PROJECTS } from "../utils";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
 function HomeScreen({ navigation }: HomeScreenProps) {
   const width = Dimensions.get("window").width;
+  const height = Dimensions.get("window").height;
+
   const { loading, data } = useQuery(QUERY_GET_PROJECTS, {
     notifyOnNetworkStatusChange: true,
   });
 
   return (
     <SafeAreaView>
-      <StatusBar backgroundColor="white" />
-
       {loading ? (
-        <LoadingIndicator />
+        <View
+          style={{
+            height: height,
+            width: width,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <LoadingIndicator />
+        </View>
       ) : (
         <FlatList
           data={data.getAllProject.slice(0, 3)}

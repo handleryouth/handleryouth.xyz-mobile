@@ -12,9 +12,11 @@ export interface HomeSectionProps {
 const Section = ({ title, body, style, headerStyle }: HomeSectionProps) => {
   return (
     <View style={{ ...styles.container, ...style }}>
-      <CustomHeadline style={{ ...styles.containerText, ...headerStyle }}>
-        {title}
-      </CustomHeadline>
+      {title && (
+        <CustomHeadline style={{ ...styles.containerText, ...headerStyle }}>
+          {title}
+        </CustomHeadline>
+      )}
       {body}
     </View>
   );

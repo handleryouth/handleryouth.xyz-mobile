@@ -20,8 +20,25 @@ const CustomCard = ({
         <CustomParagraph>{description}</CustomParagraph>
       </Card.Content>
       <Card.Actions>
-        <Button onPress={() => Linking.openURL(linkRepo)}>Repo</Button>
-        <Button onPress={() => Linking.openURL(linkDemo)}>Demo</Button>
+        <Button
+          style={{
+            width: 100,
+            marginRight: 10,
+          }}
+          onPress={() => Linking.openURL(linkRepo)}
+          mode="outlined"
+        >
+          Repo
+        </Button>
+        <Button
+          style={{
+            width: 100,
+          }}
+          onPress={() => Linking.openURL(linkDemo)}
+          mode="outlined"
+        >
+          Demo
+        </Button>
       </Card.Actions>
     </Card>
   );

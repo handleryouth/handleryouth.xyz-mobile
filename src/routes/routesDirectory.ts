@@ -20,13 +20,13 @@ export const routesDirectory: RouteProps[] = [
     icon: "book-multiple",
   },
   {
-    name: "About",
-    component: About,
-    icon: "account-supervisor-circle",
-  },
-  {
     name: "Resume",
     component: Resume,
     icon: "file-document",
+  },
+  {
+    name: "About",
+    component: About,
+    icon: "account-supervisor-circle",
   },
 ];

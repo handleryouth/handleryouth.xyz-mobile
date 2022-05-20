@@ -40,7 +40,7 @@ function App() {
       <PaperProvider theme={theme}>
         <StatusBar backgroundColor="white" />
         <NavigationContainer>
-          <Navigator initialRouteName="Resume">
+          <Navigator initialRouteName="Home">
             {routesDirectory.map((route) => (
               <Screen
                 key={route.name}

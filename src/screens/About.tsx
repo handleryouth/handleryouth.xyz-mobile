@@ -1,30 +1,14 @@
 import React from "react";
-import { View, Image, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Headline, Paragraph, Section } from "../components";
+import { Headline, Paragraph, SafeAreaView, Section } from "../components";
 import { TECH_STACKS } from "../utils";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 function DetailsScreen() {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <Image
-            source={require("../../assets/236782.webp")}
-            style={{
-              width: 200,
-              height: 270,
-            }}
-          />
-        </View>
         <Headline>The Author</Headline>
         <Paragraph>
           Hey there i am Tony . I am a self-taught Frontend Web Developer. I

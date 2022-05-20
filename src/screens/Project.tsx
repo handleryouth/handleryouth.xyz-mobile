@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { FlatList, Dimensions, View, SafeAreaView } from "react-native";
-import { CustomCard, LoadingIndicator } from "../components";
+import { FlatList, Dimensions, View } from "react-native";
+import { CustomCard, LoadingIndicator, SafeAreaView } from "../components";
 import { QUERY_GET_PROJECTS } from "../utils";
 
 const Project = () => {

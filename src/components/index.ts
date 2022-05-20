@@ -8,6 +8,7 @@ export * from "./Layout";
 export * from "./CustomTitle";
 export * from "./CustomHeadline";
 export * from "./ItemBox";
+export * from "./CustomSafeAreaView";
 
 export { default as Section } from "./Section";
 export { default as ActivityDescription } from "./ActivityDescription";
@@ -19,3 +20,4 @@ export { default as Layout } from "./Layout";
 export { default as Title } from "./CustomTitle";
 export { default as Headline } from "./CustomHeadline";
 export { default as ItemBox } from "./ItemBox";
+export { default as SafeAreaView } from "./CustomSafeAreaView";

@@ -3,8 +3,7 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { RESUME_LINK } from "@env";
 import { QUERY_GET_ALL_RESUME_DATA } from "../utils";
-import { Headline, ItemBox, Section, Title } from "../components";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Headline, ItemBox, SafeAreaView, Section, Title } from "../components";
 import { Button } from "react-native-paper";
 
 const Resume = () => {

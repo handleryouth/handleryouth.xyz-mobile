@@ -1,16 +1,12 @@
-import React from "react";
-import { Linking } from "react-native";
-import { Button, Card, Title } from "react-native-paper";
-import CustomParagraph from "./CustomParagraph";
-import { ProjectData } from "../types";
+import React from 'react'
+import { Linking } from 'react-native'
+import { Button, Card, Title } from 'react-native-paper'
 
-const CustomCard = ({
-  description,
-  image,
-  linkDemo,
-  linkRepo,
-  title,
-}: Omit<ProjectData, "id">) => {
+import { ProjectData } from '../types'
+
+import CustomParagraph from './CustomParagraph'
+
+const CustomCard = ({ description, image, linkDemo, linkRepo, title }: Omit<ProjectData, 'id'>) => {
   return (
     <Card>
       <Card.Cover source={{ uri: image }} />
@@ -41,7 +37,7 @@ const CustomCard = ({
         </Button>
       </Card.Actions>
     </Card>
-  );
-};
+  )
+}
 
-export default CustomCard;
+export default CustomCard

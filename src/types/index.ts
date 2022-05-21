@@ -1,13 +1,13 @@
 export type RootStackParamList = {
-  Home: undefined;
-  About: undefined;
-};
+  Home: undefined
+  About: undefined
+}
 
 export interface ProjectData {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  linkDemo: string;
-  linkRepo: string;
+  id: string
+  image: string
+  title: string
+  description: string
+  linkDemo: string
+  linkRepo: string
 }

@@ -1,14 +1,15 @@
 // In App.js in a new project
 
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { routesDirectory, theme } from "./src";
 import { Provider as PaperProvider } from "react-native-paper";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { useFonts } from "expo-font";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
+
+import { routesDirectory, theme } from "./src";
 
 <Ionicons name="home" size={24} color="black" />;
 const { Navigator, Screen } = createMaterialBottomTabNavigator();

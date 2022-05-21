@@ -1,23 +1,22 @@
-export * from "./Section";
-export * from "./ActivityDescription";
-export * from "./CardThumbnail";
-export * from "./CustomCard";
-export * from "./LoadingIndicator";
-export * from "./CustomParagraph";
-export * from "./Layout";
-export * from "./CustomTitle";
-export * from "./CustomHeadline";
-export * from "./ItemBox";
-export * from "./CustomSafeAreaView";
-
-export { default as Section } from "./Section";
-export { default as ActivityDescription } from "./ActivityDescription";
-export { default as CardThumbnail } from "./CardThumbnail";
-export { default as CustomCard } from "./CustomCard";
-export { default as LoadingIndicator } from "./LoadingIndicator";
-export { default as Paragraph } from "./CustomParagraph";
-export { default as Layout } from "./Layout";
-export { default as Title } from "./CustomTitle";
-export { default as Headline } from "./CustomHeadline";
-export { default as ItemBox } from "./ItemBox";
-export { default as SafeAreaView } from "./CustomSafeAreaView";
+export * from './ActivityDescription'
+export { default as ActivityDescription } from './ActivityDescription'
+export * from './CardThumbnail'
+export { default as CardThumbnail } from './CardThumbnail'
+export * from './CustomCard'
+export { default as CustomCard } from './CustomCard'
+export * from './CustomHeadline'
+export { default as Headline } from './CustomHeadline'
+export * from './CustomParagraph'
+export { default as Paragraph } from './CustomParagraph'
+export * from './CustomSafeAreaView'
+export { default as SafeAreaView } from './CustomSafeAreaView'
+export * from './CustomTitle'
+export { default as Title } from './CustomTitle'
+export * from './ItemBox'
+export { default as ItemBox } from './ItemBox'
+export * from './Layout'
+export { default as Layout } from './Layout'
+export * from './LoadingIndicator'
+export { default as LoadingIndicator } from './LoadingIndicator'
+export * from './Section'
+export { default as Section } from './Section'

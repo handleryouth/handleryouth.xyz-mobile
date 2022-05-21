@@ -1,23 +1,19 @@
-import React, { ReactNode } from "react";
-import { GestureResponderEvent, TextStyle } from "react-native";
-import { Paragraph } from "react-native-paper";
+import React, { ReactNode } from 'react'
+import { GestureResponderEvent, TextStyle } from 'react-native'
+import { Paragraph } from 'react-native-paper'
 
 interface CustomParagraphProps {
-  children: ReactNode;
-  style?: TextStyle;
-  onPress?: (event: GestureResponderEvent) => void;
+  children: ReactNode
+  style?: TextStyle
+  onPress?: (event: GestureResponderEvent) => void
 }
 
-const CustomParagraph = ({
-  children,
-  style,
-  onPress,
-}: CustomParagraphProps) => {
+const CustomParagraph = ({ children, style, onPress }: CustomParagraphProps) => {
   return (
     <Paragraph
       style={{
         ...style,
-        fontFamily: "Inter-Medium",
+        fontFamily: 'Inter-Medium',
         fontSize: 15,
         lineHeight: 22,
       }}
@@ -25,7 +21,7 @@ const CustomParagraph = ({
     >
       {children}
     </Paragraph>
-  );
-};
+  )
+}
 
-export default CustomParagraph;
+export default CustomParagraph

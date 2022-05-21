@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client'
 
 export const QUERY_GET_PROJECTS = gql`
   query getAllProjects {
@@ -11,7 +11,7 @@ export const QUERY_GET_PROJECTS = gql`
       linkDemo
     }
   }
-`;
+`
 
 export const QUERY_GET_ALL_RESUME_DATA = gql`
   query getResumePageProps {
@@ -34,4 +34,4 @@ export const QUERY_GET_ALL_RESUME_DATA = gql`
       description
     }
   }
-`;
+`

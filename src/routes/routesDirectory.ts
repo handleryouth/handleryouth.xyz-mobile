@@ -1,32 +1,33 @@
-import { ComponentType } from "react";
-import { About, Home, Project, Resume } from "../screens";
+import { ComponentType } from 'react'
+
+import { About, Home, Project, Resume } from '../screens'
 
 export interface RouteProps {
-  name: string;
+  name: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: ComponentType<any>;
-  icon: string;
+  component: ComponentType<any>
+  icon: string
 }
 
 export const routesDirectory: RouteProps[] = [
   {
-    name: "Home",
+    name: 'Home',
     component: Home,
-    icon: "home",
+    icon: 'home',
   },
   {
-    name: "Project",
+    name: 'Project',
     component: Project,
-    icon: "book-multiple",
+    icon: 'book-multiple',
   },
   {
-    name: "Resume",
+    name: 'Resume',
     component: Resume,
-    icon: "file-document",
+    icon: 'file-document',
   },
   {
-    name: "About",
+    name: 'About',
     component: About,
-    icon: "account-supervisor-circle",
+    icon: 'account-supervisor-circle',
   },
-];
+]

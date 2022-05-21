@@ -1,23 +1,21 @@
-import { StyleSheet, TextStyle } from "react-native";
-import React, { ReactNode } from "react";
-import { Headline } from "react-native-paper";
+import React, { ReactNode } from 'react'
+import { StyleSheet, TextStyle } from 'react-native'
+import { Headline } from 'react-native-paper'
 
 interface CustomHeadlineProps {
-  children: ReactNode;
-  style?: TextStyle;
+  children: ReactNode
+  style?: TextStyle
 }
 
 const CustomHeadline = ({ children, style }: CustomHeadlineProps) => {
-  return (
-    <Headline style={{ ...style, ...styles.headline }}>{children}</Headline>
-  );
-};
+  return <Headline style={{ ...style, ...styles.headline }}>{children}</Headline>
+}
 
-export default CustomHeadline;
+export default CustomHeadline
 
 const styles = StyleSheet.create({
   headline: {
-    fontFamily: "Inter-Bold",
+    fontFamily: 'Inter-Bold',
     fontSize: 30,
   },
-});
+})

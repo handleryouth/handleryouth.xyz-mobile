@@ -1,1 +1,1 @@
-export * from "./routesDirectory";
+export * from './routesDirectory'

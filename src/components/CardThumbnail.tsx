@@ -1,14 +1,15 @@
-import React from "react";
-import { Linking } from "react-native";
-import { Button, Card } from "react-native-paper";
-import { ProjectData } from "../types";
+import React from 'react'
+import { Linking } from 'react-native'
+import { Button, Card } from 'react-native-paper'
+
+import { ProjectData } from '../types'
 
 const CardThumbnail = ({
   image,
   linkDemo,
   linkRepo,
   title,
-}: Omit<ProjectData, "id" | "description">) => (
+}: Omit<ProjectData, 'id' | 'description'>) => (
   <Card>
     <Card.Cover source={{ uri: image }} />
     <Card.Title title={title} />
@@ -17,6 +18,6 @@ const CardThumbnail = ({
       <Button onPress={() => Linking.openURL(linkRepo)}>Repo</Button>
     </Card.Actions>
   </Card>
-);
+)
 
-export default CardThumbnail;
+export default CardThumbnail

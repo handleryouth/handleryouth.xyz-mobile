@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { ReactNode } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const CustomSafeAreaView = ({ children }: { children: ReactNode }) => {
   return (
@@ -10,7 +10,7 @@ const CustomSafeAreaView = ({ children }: { children: ReactNode }) => {
     >
       {children}
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default CustomSafeAreaView;
+export default CustomSafeAreaView

@@ -1,21 +1,21 @@
-import { StyleSheet, TextStyle } from "react-native";
-import React, { ReactNode } from "react";
-import { Title } from "react-native-paper";
+import React, { ReactNode } from 'react'
+import { StyleSheet, TextStyle } from 'react-native'
+import { Title } from 'react-native-paper'
 
 interface CustomTitleProps {
-  children: ReactNode;
-  style?: TextStyle;
+  children: ReactNode
+  style?: TextStyle
 }
 
 const CustomTitle = ({ children, style }: CustomTitleProps) => {
-  return <Title style={{ ...style, ...styles.title }}>{children}</Title>;
-};
+  return <Title style={{ ...style, ...styles.title }}>{children}</Title>
+}
 
-export default CustomTitle;
+export default CustomTitle
 
 const styles = StyleSheet.create({
   title: {
-    fontFamily: "Inter-Bold",
+    fontFamily: 'Inter-Bold',
     fontSize: 23,
   },
-});
+})

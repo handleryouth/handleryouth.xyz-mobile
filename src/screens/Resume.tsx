@@ -1,16 +1,17 @@
-import { FlatList, Linking } from "react-native";
-import { useQuery } from "@apollo/client";
-import React from "react";
-import { RESUME_LINK } from "@env";
-import { QUERY_GET_ALL_RESUME_DATA } from "../utils";
-import { Headline, ItemBox, SafeAreaView, Section, Title } from "../components";
-import { Button } from "react-native-paper";
+import React from 'react'
+import { FlatList, Linking } from 'react-native'
+import { Button } from 'react-native-paper'
+import { useQuery } from '@apollo/client'
+import { RESUME_LINK } from '@env'
+
+import { Headline, ItemBox, SafeAreaView, Section, Title } from '../components'
+import { QUERY_GET_ALL_RESUME_DATA } from '../utils'
 
 const Resume = () => {
-  const { data, loading } = useQuery(QUERY_GET_ALL_RESUME_DATA);
+  const { data, loading } = useQuery(QUERY_GET_ALL_RESUME_DATA)
 
   if (loading) {
-    return null;
+    return null
   }
 
   return (
@@ -56,26 +57,22 @@ const Resume = () => {
                       {...item}
                     />
                   )}
-                  keyExtractor={(item) => item.id}
+                  keyExtractor={item => item.id}
                 />
               }
-              keyExtractor={(item) => item.id}
+              keyExtractor={item => item.id}
             />
 
             <Section
               title="Resume"
-              body={
-                <Button onPress={() => Linking.openURL(RESUME_LINK.toString())}>
-                  Resume
-                </Button>
-              }
+              body={<Button onPress={() => Linking.openURL(RESUME_LINK.toString())}>Resume</Button>}
             />
           </>
         }
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
       />
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default Resume;
+export default Resume

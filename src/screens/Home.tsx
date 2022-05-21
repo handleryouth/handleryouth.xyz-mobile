@@ -1,30 +1,31 @@
-import React from "react";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import AntDesignIcon from "react-native-vector-icons/AntDesign";
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import { View, Image, Linking, Dimensions, FlatList } from "react-native";
+import React from 'react'
+import { Dimensions, FlatList, Image, Linking, View } from 'react-native'
+import { Button } from 'react-native-paper'
+import AntDesignIcon from 'react-native-vector-icons/AntDesign'
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
+import { useQuery } from '@apollo/client'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+
 import {
   ActivityDescription,
   CardThumbnail,
   LoadingIndicator,
-  Section,
   Paragraph,
   SafeAreaView,
-} from "../components";
-import { RootStackParamList } from "../types";
-import { useQuery } from "@apollo/client";
-import { Button } from "react-native-paper";
-import { QUERY_GET_PROJECTS } from "../utils";
+  Section,
+} from '../components'
+import { RootStackParamList } from '../types'
+import { QUERY_GET_PROJECTS } from '../utils'
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>
 
 function HomeScreen({ navigation }: HomeScreenProps) {
-  const width = Dimensions.get("window").width;
-  const height = Dimensions.get("window").height;
+  const width = Dimensions.get('window').width
+  const height = Dimensions.get('window').height
 
   const { loading, data } = useQuery(QUERY_GET_PROJECTS, {
     notifyOnNetworkStatusChange: true,
-  });
+  })
 
   return (
     <SafeAreaView>
@@ -33,9 +34,9 @@ function HomeScreen({ navigation }: HomeScreenProps) {
           style={{
             height: height,
             width: width,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <LoadingIndicator />
@@ -50,13 +51,13 @@ function HomeScreen({ navigation }: HomeScreenProps) {
                   <View>
                     <View
                       style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "center",
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
                       }}
                     >
                       <Image
-                        source={require("../../assets/236782.webp")}
+                        source={require('../../assets/236782.webp')}
                         style={{
                           width: 200,
                           height: 300,
@@ -72,20 +73,15 @@ function HomeScreen({ navigation }: HomeScreenProps) {
                       <Paragraph>Frontend Engineer</Paragraph>
                       <Paragraph>Tony David</Paragraph>
                       <Paragraph>
-                        Tony is an Electrical Engineering student who still
-                        studying at the Sepuluh Nopember Institute of
-                        Technology. He is interested in studying in the computer
-                        field, especially hardware. Being consistent in work and
-                        politeness are his main characteristics. he loves
-                        learning programming languages (Python, Javascript,
-                        etc). Right now, he is pursuing his career as a FrontEnd
-                        Engineer
+                        Tony is an Electrical Engineering student who still studying at the Sepuluh
+                        Nopember Institute of Technology. He is interested in studying in the
+                        computer field, especially hardware. Being consistent in work and politeness
+                        are his main characteristics. he loves learning programming languages
+                        (Python, Javascript, etc). Right now, he is pursuing his career as a
+                        FrontEnd Engineer
                       </Paragraph>
                     </View>
-                    <Button
-                      onPress={() => navigation.navigate("About")}
-                      mode="contained"
-                    >
+                    <Button onPress={() => navigation.navigate('About')} mode="contained">
                       Know me more!
                     </Button>
                   </View>
@@ -131,19 +127,17 @@ function HomeScreen({ navigation }: HomeScreenProps) {
                   <View>
                     <Paragraph
                       style={{
-                        textAlign: "center",
+                        textAlign: 'center',
                       }}
-                      onPress={() =>
-                        Linking.openURL("https://starting-page.vercel.app/")
-                      }
+                      onPress={() => Linking.openURL('https://starting-page.vercel.app/')}
                     >
                       Starting Page for Browser
                     </Paragraph>
 
                     <Image
-                      source={require("../../assets/startingpage.webp")}
+                      source={require('../../assets/startingpage.webp')}
                       style={{
-                        resizeMode: "cover",
+                        resizeMode: 'cover',
                         width: width,
                         height: width * 0.5,
                       }}
@@ -153,11 +147,11 @@ function HomeScreen({ navigation }: HomeScreenProps) {
               />
             </View>
           }
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.id}
         />
       )}
     </SafeAreaView>
-  );
+  )
 }
 
-export default HomeScreen;
+export default HomeScreen

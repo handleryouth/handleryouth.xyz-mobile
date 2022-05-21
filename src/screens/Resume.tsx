@@ -4,14 +4,14 @@ import { Button } from 'react-native-paper'
 import { useQuery } from '@apollo/client'
 import { RESUME_LINK } from '@env'
 
-import { Headline, ItemBox, SafeAreaView, Section, Title } from '../components'
+import { FullscreenLoading, Headline, ItemBox, SafeAreaView, Section, Title } from '../components'
 import { QUERY_GET_ALL_RESUME_DATA } from '../utils'
 
 const Resume = () => {
   const { data, loading } = useQuery(QUERY_GET_ALL_RESUME_DATA)
 
   if (loading) {
-    return null
+    return <FullscreenLoading />
   }
 
   return (
